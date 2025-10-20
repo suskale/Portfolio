@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-svc
+  namespace: portfolio
+spec:
+  selector:
+    app: portfolio
+  type: NodePort      # or LoadBalancer if your cluster supports it (cloud)
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    # nodePort: 30080   # optional static nodePort

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sushant — DevOps Portfolio</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="Portfolio & resume of Sushant — DevOps enthusiast" />
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="nav container">
+            <div class="brand">Sushant</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-inner container">
+                <div class="hero-text">
+                    <h1>Hi, I'm Sushant</h1>
+                    <p class="lead">DevOps Engineer • Cloud Enthusiast • Automation addict</p>
+                    <p class="bio">I build reliable infrastructure, automation pipelines and CI/CD systems. I enjoy
+                        Kubernetes, Terraform, Docker and observability.</p>
+                    <div class="cta-row">
+                        <a class="btn" href="#projects">See work</a>
+                        <a class="btn ghost" href="resume.pdf" target="_blank">Download Resume</a>
+                    </div>
+                    <div class="links-row">
+                        <a href="linkedin.com/in/sushant-kale-677441237" target="_blank">LinkedIn</a> ·
+                        <a href="https://github.com/suskale" target="_blank">GitHub</a> ·
+                        <a href="sushantkale302@gmail.com">sushantkale302@gmail.com</a>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="card-content">
+                        <h3>Contact</h3>
+                        <p><strong>Phone:</strong> +91-9096380226</p>
+                        <p><strong>Email:</strong> sushantkale302@gmail.com</p>
+
+                        <hr>
+
+                        <h3>Quick Resume</h3>
+                        <p><strong>SSC:</strong> P.Jog English Medium School, 2016</p>
+                        <p><strong>HSC:</strong> Shri Fattechand Junior College, 2018</p>
+                        <p><strong>Degree:</strong> B.E. in Information Technology — Savitribai Phule Pune University,
+                            2023</p>
+
+                        <hr>
+
+                        <h3>Skills</h3>
+                        <ul class="skill-list">
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                            <li>CI/CD (Jenkins/GitHub Actions)</li>
+                            <li>Terraform</li>
+                            <li>Prometheus & Grafana</li>
+                            <li>Linux & Bash</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container section">
+            <h2>Core Skills</h2>
+            <div class="skill-grid">
+                <div class="skill">
+                    <h4>Containerization</h4>
+                    <p>Docker images, multi-stage builds, image optimization.</p>
+                </div>
+                <div class="skill">
+                    <h4>Orchestration</h4>
+                    <p>Kubernetes: deployments, services, namespaces, Helm basics.</p>
+                </div>
+                <div class="skill">
+                    <h4>Infrastructure as Code</h4>
+                    <p>Terraform for provisioning cloud infra.</p>
+                </div>
+                <div class="skill">
+                    <h4>CI/CD</h4>
+                    <p>Automated pipelines: build, test, deploy, rollback strategies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container section">
+            <h2>Featured Project — This Portfolio</h2>
+            <div class="project">
+                <p>This portfolio is a static website served by nginx inside a Docker container and deployed to
+                    Kubernetes. Includes Dockerfile + k8s manifests.</p>
+                <a class="btn" href="#contact">Get in touch</a>
+            </div>
+        </section>
+
+        <section id="education" class="container section">
+            <h2>Education</h2>
+            <div class="edu-grid">
+                <div>
+                    <h3>Bachelor of Information Technology — Savitribai Phule Pune University</h3>
+                    <h4>College — Siddhant College of Engineering</h4>
+                    <p>Year: 2018 — 2023</p>
+                    <p>CGPA — 7.56</p>
+                </div>
+                <div>
+                    <h3>HSC</h3>
+                    <h4>College — Shri Fattechand Junior College</h4>
+                    <p>Passout Year: 2016</p>
+                    <p>Percentage — 67.23%</p>
+                </div>
+                <div>
+                    <h3>SSC</h3>
+                    <h4>School — P.Jog English Medium School</h4>
+                    <p>Passout Year: 2016</p>
+                    <p>Percentage — 79.40%</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container section contact-section">
+            <h2>Contact</h2>
+            <p>If you'd like to chat about an opportunity, ping me at <a
+                    href="sushantkale302@gmail.com">sushantkale302@gmail.com</a> or connect on LinkedIn.</p>
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <h4>Email</h4>
+                    <p>sushantkale302@gmail.com</p>
+                </div>
+                <div class="contact-card">
+                    <h4>Phone</h4>
+                    <p>+91-9096380226</p>
+                </div>
+                <div class="contact-card">
+                    <h4>GitHub</h4>
+                    <p><a href="https://github.com/suskale" target="_blank">github.com/suskale</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <small>© <span id="year"></span> Sushant — Built with ❤ • <a href="#">Privacy</a></small>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
