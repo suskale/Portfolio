@@ -1,0 +1,41 @@
+@Library('shared') _
+pipeline{
+    
+    agent { label "rat" }
+    
+    stages{
+        
+        stage("Clone"){
+            steps{
+                script{
+                    clone("https://github.com/suskale/Portfolio.git","main")
+                }
+            }
+            
+        }
+        stage("Build"){
+            steps{
+                script{
+                    docker_build("portfolio","latest","suskale")
+                }
+            }
+            
+        }
+        stage("push to Docker Hub"){
+            steps{
+                script{
+                    docker_push("portfolio","latest","suskale")
+                }
+            }
+            
+        }
+        stage("Deploy"){
+            steps{
+                script{
+                    compose()
+                }
+            }
+            
+        }
+    }
+}
