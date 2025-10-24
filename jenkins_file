@@ -1,41 +1,80 @@
-@Library('shared') _
+@Library('enter_your_shared_file_here') _
 pipeline{
     
-    agent { label "rat" }
+    agent { label "enter_your_agent_here" }
     
-    stages{
-        
-        stage("Clone"){
-            steps{
-                script{
-                    clone("https://github.com/suskale/Portfolio.git","main")
+    stages {
+
+        stage("Clone") {
+            steps {
+                script {
+                    clone("https://github.com/suskale/Portfolio.git", "main")
                 }
             }
-            
         }
-        stage("Build"){
-            steps{
-                script{
-                    docker_build("portfolio","latest","suskale")
+
+        stage("Build") {
+            steps {
+                script {
+                    def image = "suskale/portfolio:latest"
+
+                    // Check if the image exists locally
+                    def localExists = sh(
+                        script: "docker images -q ${image}",
+                        returnStdout: true
+                    ).trim()
+
+                    // Check if the image exists on Docker Hub
+                    def remoteExists = sh(
+                        script: "docker manifest inspect ${image} > /dev/null 2>&1 && echo true || echo false",
+                        returnStdout: true
+                    ).trim()
+
+                    if (localExists || remoteExists == "true") {
+                        echo "✅ Image ${image} already exists, skipping build..."
+                    } else {
+                        echo "⚙️ Building new Docker image..."
+                        docker_build("portfolio", "latest", "suskale")
+                    }
                 }
             }
-            
         }
-        stage("push to Docker Hub"){
-            steps{
-                script{
-                    docker_push("portfolio","latest","suskale")
+
+        stage("Push to Docker Hub") {
+            steps {
+                script {
+                    def image = "suskale/portfolio:latest"
+                    def remoteExists = sh(
+                        script: "docker manifest inspect ${image} > /dev/null 2>&1 && echo true || echo false",
+                        returnStdout: true
+                    ).trim()
+
+                    if (remoteExists == "true") {
+                        echo "✅ Image ${image} already exists on Docker Hub, skipping push..."
+                    } else {
+                        echo "📦 Pushing image to Docker Hub..."
+                        docker_push("portfolio", "latest", "suskale")
+                    }
                 }
             }
-            
         }
-        stage("Deploy"){
-            steps{
-                script{
-                    compose()
+
+        stage("Deploy") {
+            steps {
+                script {
+                    echo "🛑 Stopping old container (if any)..."
+            sh """
+            old_container=\$(docker ps -q --filter "publish=8080")
+            if [ ! -z "\$old_container" ]; then
+              docker stop \$old_container
+              docker rm \$old_container
+            fi
+            """
+
+            echo "🚀 Starting new container..."
+            compose()
                 }
             }
-            
         }
     }
 }
