@@ -1,7 +1,7 @@
-@Library('enter_your_shared_file_here') _
+@Library('shared') _
 pipeline{
     
-    agent { label "enter_your_agent_here" }
+    agent any
     
     stages {
 
