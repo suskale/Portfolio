@@ -1,4 +1,4 @@
-# 🌌 Sushant Kale — Dark Neon Portfolio Website
+# 🌌 Sushant Kale — Portfolio Website
 
 ![Portfolio Preview](cp.png)
 
