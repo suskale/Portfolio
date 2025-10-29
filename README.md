@@ -7,6 +7,12 @@ Built with passion for design, technology, and automation — the theme features
 
 ---
 
+## 🔗 Live Demo
+You can preview the portfolio locally by opening `index.html` in a modern browser.  
+Or access the online demo here: [Live Demo](https://suskale.github.io/Portfolio/)
+
+---
+
 ## 🚀 Features
 
 ✨ **Responsive Design** — Fully optimized for desktops, tablets, and mobile devices  
@@ -39,6 +45,3 @@ git clone https://github.com/suskale/Portfolio.git
 
 # Navigate to the project directory
 cd Portfolio
-
-# Open the project
-Open index.html in your browser
