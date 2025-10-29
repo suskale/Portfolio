@@ -34,7 +34,7 @@ The website features smooth animations, typing effects, responsive design, and a
 1. **Clone this repository**
    ```bash
    git clone https://github.com/suskale/Portfolio.git
-   cd Sabo
+   cd Portfolio
    
 ---
 
